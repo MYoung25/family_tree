@@ -20,8 +20,10 @@ services:
       - 'mongo'
     container_name: family-tree-dev
     restart: unless-stopped
+    env_file: 
+      - ./server/.env
     ports:
-      - "3005:3000"
+      - "3005:3005"
     volumes:
       - ./server/src:/usr/src/app/src
     command: pm2-runtime start ./src/app.js --watch

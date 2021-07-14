@@ -1,0 +1,13 @@
+
+# export MONGODB_URI="mongodb://familytree-d985305a.mongo.ondigitalocean.com/familytree"
+# export MONGODB_USERNAME="familytree"
+# export MONGODB_PASSWORD="juY168nf75h9p23F"
+
+# export MONGODB_URI="mongodb://private-familytree-a6a26bd3.mongo.ondigitalocean.com:27017/familytree"
+# export MONGODB_USERNAME="familytree"
+# export MONGODB_PASSWORD="juY168nf75h9p23F"
+
+# // production
+# mongodb+srv://familytree:juY168nf75h9p23F@private-familytree-a6a26bd3.mongo.ondigitalocean.com/admin?authSource=admin&tls=true&tlsCAFile=%3Creplace-with-path-to-CA-cert%3E
+# // local
+# mongodb+srv://familytree:juY168nf75h9p23F@familytree-d985305a.mongo.ondigitalocean.com/admin?authSource=admin&tls=true&tlsCAFile=%3Creplace-with-path-to-CA-cert%3E
