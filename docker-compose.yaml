@@ -15,7 +15,7 @@ services:
       - family-tree-network
     build:
       context: ./server
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
     depends_on:
       - 'mongo'
     container_name: family-tree-dev

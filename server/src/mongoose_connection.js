@@ -7,7 +7,8 @@ class MongooseConnection {
         const {
             MONGODB_URI,
             MONGODB_UNAME,
-            MONGODB_PW
+            MONGODB_PW,
+            MONGODB_SSL_CERT,
         } = process.env
 
         this.dbAuth = {
@@ -15,7 +16,10 @@ class MongooseConnection {
             reconnectTries: Number.MAX_VALUE,
             user: MONGODB_UNAME,
             pass: MONGODB_PW,
-            useNewUrlParser: true
+            useNewUrlParser: true,
+            ssl: true,
+            sslValidate: false,
+            sslCert: MONGODB_SSL_CERT
         }
 
         this.URI = MONGODB_URI
