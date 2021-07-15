@@ -13,4 +13,4 @@ COPY ./src ./src
 
 EXPOSE 3000
 
-CMD ["pm2-runtime", "start", "--watch"]
+CMD ["pm2-runtime", "start", "./src/app.js", "--watch"]
