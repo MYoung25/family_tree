@@ -1,8 +1,8 @@
 // create an express server listening on port 3005
 var express = require('express');
-const MongoDB = require('./mongoose_connection')
+const MongoDB = require('./src/mongoose_connection')
 
-const routes = require('./routes.js');
+const routes = require('./src/routes.js');
 
 var app = express();
 
