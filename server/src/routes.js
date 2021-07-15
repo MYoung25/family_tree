@@ -8,17 +8,16 @@ router.route('/person')
         .populate('mother')
         .populate('father')
         .populate('spouse')
-        .then(function (err, docs) {
-            if (err) {
-                res.status(500).send(err);
-            } else {
-                res.status(200).send(docs);
-            }
+        .then((docs) => {
+            res.status(200).send(docs);
+        })
+        .catch((err) => {
+            console.error(err)
+            res.status(500).send(err);
         })
     })
     .post(function (req, res) {
         const p = new Person(req.body)
-        console.log(p)
         p.save(function (err, doc) {
                 if (err) {
                     res.send(err);
@@ -43,8 +42,11 @@ router.route('/person/:id')
     })
     .put(function (req, res) {
         Person.findById(req.params.id, function (err, doc) {
-            doc.name = req.body.name;
-            doc.age = req.body.age;
+            doc.firstName = req.body.firstName;
+            doc.lastName = req.body.lastName;
+            doc.mother = req.body.mother;
+            doc.father = req.body.father;
+            doc.spouse = req.body.spouse;
             doc.save(function (err) {
                 if (err) {
                     res.send(err);
