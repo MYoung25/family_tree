@@ -18,18 +18,18 @@ const personSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  mother: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "person",
-  },
-  father: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "person",
-  },
-  spouse: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "person",
-  },
+  // mother: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: "person",
+  // },
+  // father: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: "person",
+  // },
+  // spouse: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: "person",
+  // },
 });
 
 // create a person model using the schema
