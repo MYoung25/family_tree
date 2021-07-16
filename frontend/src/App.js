@@ -102,7 +102,7 @@ function App() {
           </DialogContent>
           <DialogActions>
             <Button color="primary" variant="outlined" onClick={() => {
-              Axios.post(`${process.env.REACT_APP_API_URL}/person`, {
+              Axios.post("/person", {
                 firstName: addPerson.firstName,
                 lastName: addPerson.lastName,
               })
