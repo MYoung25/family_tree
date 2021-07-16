@@ -8,7 +8,7 @@ class MongooseConnection {
             MONGODB_URI,
             MONGODB_UNAME,
             MONGODB_PW,
-            MONGODB_SSL_CERT,
+            CA_CERT
         } = process.env
 
         this.dbAuth = {
@@ -19,7 +19,7 @@ class MongooseConnection {
             useNewUrlParser: true,
             ssl: true,
             sslValidate: false,
-            sslCert: MONGODB_SSL_CERT
+            sslCert: CA_CERT
         }
 
         this.URI = MONGODB_URI
