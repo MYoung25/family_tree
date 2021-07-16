@@ -10,10 +10,8 @@ COPY ./package*.json ./
 RUN npm install
 
 COPY ./src ./src
-COPY ./build ./public
-COPY ./ca-certificate.crt .
+COPY ca-certificate.crt ./
 
-RUN source .env
 
 EXPOSE 3000
 
