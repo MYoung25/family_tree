@@ -18,17 +18,19 @@ const personSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  mother: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "person",
-  },
-  father: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "person",
-  },
   spouse: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "person",
+  },
+  parents: {
+    type: [mongoose.Schema.Types.ObjectId],
+    ref: "person",
+    default: [],
+  },
+  children: {
+    type: [mongoose.Schema.Types.ObjectId],
+    ref: "person",
+    default: [],
   },
 });
 

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Chip, Avatar, Fab, TextField, Dialog, DialogActions, DialogContent, DialogTitle, Button, makeStyles } from '@material-ui/core'
-import { Add } from '@material-ui/icons';
+import { Grid, Card, CardContent, Typography, IconButton, Chip, Avatar, Fab, TextField, Dialog, DialogActions, DialogContent, DialogTitle, Button, makeStyles } from '@material-ui/core'
+import { Add, Edit } from '@material-ui/icons';
 import Axios from 'axios'
 import './App.css';
 
@@ -20,6 +20,9 @@ const useStyles = makeStyles(theme => ({
     width: '350px',
     marginTop: theme.spacing(3),
     padding: theme.spacing(3),
+  },
+  card: {
+    margin: 'auto',
   }
 }));
 
@@ -52,19 +55,43 @@ function App() {
   return (
     <div className="App">
       <div>
-
-      { 
-        people.map((person, index) => (
-          <Chip
-            key={person._id}
-            avatar={<Avatar>{person.firstName.slice(0,1)}{person.lastName.slice(0,1)}</Avatar>}
-            label={`${person.firstName} ${person.lastName}`}
-            clickable
-            onClick={() => setShowPerson(person._id)}
-            color={showPerson === person._id ? 'primary' : 'default'}
-          />
-        )) 
-      }
+        <Grid container spacing={2} direction="row" justifyContent="center" alignItems="center">
+          { 
+            people.map((person, index) => (
+              <Grid item key={person._id} xs={3}>
+                <Card
+                  className={classes.card}
+                >
+                  <CardContent>
+                    <Chip
+                      avatar={<Avatar component="span">{person.firstName.slice(0,1)}{person.lastName.slice(0,1)}</Avatar>}
+                      label={person.firstName + ' ' + person.lastName}
+                    />
+                    <IconButton onClick={() => setShowPerson(person._id)}>
+                      <Edit/>
+                    </IconButton>
+                    <div>
+                      {
+                        person.spouse ? 
+                          <Typography variant="body2">Spouse: {person.spouse.firstName} {person.spouse.lastName}</Typography> : ''
+                      }
+                      {
+                        person.parents.length ?
+                        <Typography variant="subtitle1">Parent{person.parents.length > 1 && 's'}: {person.parents.map(p => `${p.firstName} ${p.lastName}`).join(', ')}</Typography>
+                        : ''
+                      }
+                      {
+                        person.children.length ?
+                        <Typography variant="subtitle1">{person.children.length > 1 ? 'Children' : 'Child' }: {person.children.map(p => `${p.firstName} ${p.lastName}`).join(', ')}</Typography>
+                        : ''
+                      }
+                      </div>
+                  </CardContent>
+                </Card>
+              </Grid>
+            )) 
+          }
+        </Grid>
 
       { showPerson && <div className={classes.showPerson}><ShowPerson _id={showPerson} saved={() => {
         fetchPeople()

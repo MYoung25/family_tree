@@ -27,8 +27,5 @@ new MongoDB().createConnection()
         app.listen(3000);
         console.log(`Server running on port 3000`);
 
-        // serve the static files
-        app.use(express.static(__dirname + '/public'));
-
         app.use(routes);
     })
